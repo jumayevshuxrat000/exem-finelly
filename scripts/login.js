@@ -2,6 +2,24 @@
 const loginInputEl = document.querySelector(".input__user");
 const passwordEL = document.querySelector(".input__pass");
 const formEL = document.querySelector(".form");
+const sidebar = document.querySelector(".sidebar");
+const sidebarOverlay = document.querySelector(".sidebar-overlay");
+const menuBtn = document.querySelector(".menu");
+const closeSidebarBtn = document.querySelector(".sidebar-close-btn");
+
+function openSidebar() {
+    sidebar.classList.add("active");
+    sidebarOverlay.classList.add("active");
+}
+
+function closeSidebar() {
+    sidebar.classList.remove("active");
+    sidebarOverlay.classList.remove("active");
+}
+
+menuBtn.addEventListener("click", openSidebar);
+closeSidebarBtn.addEventListener("click", closeSidebar);
+sidebarOverlay.addEventListener("click", closeSidebar);
 const BASE_URL = "https://dummyjson.com";
 
 function isTokenExpired(token) {

@@ -6,6 +6,25 @@ const searchInputEl = document.querySelector(".search-wrapper input")
 const searchDropEl = document.querySelector(".search__drop")
 const categoryLoadingEl = document.querySelector(".category__loading")
 const loadingEl = document.querySelector(".loading")
+const sidebar = document.querySelector(".sidebar");
+const sidebarOverlay = document.querySelector(".sidebar-overlay");
+const menuBtn = document.querySelector(".menu");
+const closeSidebarBtn = document.querySelector(".sidebar-close-btn");
+
+function openSidebar() {
+    sidebar.classList.add("active");
+    sidebarOverlay.classList.add("active");
+}
+
+function closeSidebar() {
+    sidebar.classList.remove("active");
+    sidebarOverlay.classList.remove("active");
+}
+
+menuBtn.addEventListener("click", openSidebar);
+closeSidebarBtn.addEventListener("click", closeSidebar);
+sidebarOverlay.addEventListener("click", closeSidebar);
+
 
 
 const BASE_URL = "https://dummyjson.com";

@@ -83,7 +83,7 @@ body{
 }
 
 .search-wrapper input[type="search"] {
-    padding: 0.5rem 2rem 0.5rem 1rem; /* Icon uchun o'ngdan joy ochiladi */
+    padding: 0.5rem 2rem 0.5rem 1rem;
     border: none;
     border-radius: 5px;
     outline: none;
@@ -92,11 +92,106 @@ body{
     background: #ddd;
 }
 
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Initially hidden off-screen */
+    width: 300px;
+    height: 100%;
+    background-color: #222;
+    color: #fff;
+    overflow-y: auto;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    left: 0; /* Visible when active */
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    background-color: #111;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+}
+
+.sidebar-close-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+}
+
+.sidebar-menu li a:hover {
+    color: #f39c12;
+}
+
+.sidebar-footer {
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #444;
+    margin-top: auto;
+}
+
+/* For menu button */
+.menu {
+    cursor: pointer;
+    z-index: 1100;
+}
+
+
+
 .search-wrapper .search-icon {
     position: absolute;
     right: 10px; /* Icon inputning ichida joylashadi */
     font-size: 1rem;
-    color: #555;
+    color: #000000;
     pointer-events: none; /* Icon bosilmaydi */
 }
 
@@ -107,10 +202,6 @@ body{
     }
     .nav__collection{
         display: none;
-    }
-    .menu{
-        display: block;
-        margin-top: 5px;
     }
 
     .menu__img {
@@ -142,50 +233,6 @@ body{
 }
 
 
-.menu__btn {
-    top: 20px;
-    left: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.menu__img {
-    display: block;
-}
-
-.menu {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.menu-link {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.menu-link:hover {
-    text-decoration: underline;
-}
-.close__menu__btn{
-    position: fixed;
-    background: #f3f3f3f3;
-    border: 2px solid #232f3e;
-    background: #232f3e;
-    width: 50px;
-    height: 50px;
-    top: -80px;
-    left: 360px;
-}
-
-.menuShowBtn{
-    top: 17px;
-}
-.close__menu__btn img{
-    width: 25px;
-}
 
 .category__loading {
     display: flex;
@@ -251,22 +298,6 @@ body{
 }
 
 
-  .sidebar {
-    width: 300px;
-    height: 100vh;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: -350px;
-    z-index: 1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .show{
-    left: 0;
-  }
 
 .hr{
     background-color: #c2c1c1;

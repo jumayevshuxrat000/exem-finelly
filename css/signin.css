@@ -5,6 +5,7 @@ body{
 .section__contents{
     display: flex;
     gap: 20px;
+    padding: 50px;
 }
 
 
@@ -23,6 +24,20 @@ body{
     gap: 40px;
 }
 
+@media (max-width: 1000px) {
+ .section__image{
+    display: none;
+ }   
+
+}
+
+@media (max-width: 1120px) {
+    .section__contents{
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+     }
+}
 
 .sign__section__contents h2{
     font-size: 36px;
